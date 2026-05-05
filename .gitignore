@@ -1,0 +1,9 @@
+mandelbrot_10.v
+obj_dir/
+output.ppm
+sw/bin/
+venv/
+main_verilator
+main_verilator_sdl
+mandelbrot_10_d_ram_preload.hex
+mandelbrot_10_i_ram_preload.hex

@@ -1,0 +1,33 @@
+name: Build Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Initialize Submodules
+      run: |
+        git submodule update --init --depth 1 Hazard3
+
+    - name: Install Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y verilator libsdl2-dev libsdl2-image-dev clang llvm
+
+    - name: Build Headless
+      run: |
+        make clean
+        make main_verilator
+
+    - name: Build with SDL
+      run: |
+        make clean
+        make main_verilator_sdl
