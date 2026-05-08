@@ -58,10 +58,6 @@ main_verilator: mandelbrot_10.v main_verilator.cpp
 	(cd obj_dir; make OPT_FAST="-O3 -march=native --std=c++20" -f Vmandelbrot_10.mk)
 	cp obj_dir/Vmandelbrot_10 main_verilator
 
-sw/bin/mandelbrot_rv32imac: sw/mandelbrot.c
-	mkdir sw/bin || true
-	make -C sw/
-
 mandelbrot_10.v: sw/bin/mandelbrot_rv32imac venv/bin/python load_elf.py soc.tmpl.v
 	venv/bin/python load_elf.py $< $@
 
