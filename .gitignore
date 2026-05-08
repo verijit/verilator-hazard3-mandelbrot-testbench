@@ -1,7 +1,6 @@
 mandelbrot_10.v
 obj_dir/
 output.ppm
-sw/bin/
 venv/
 main_verilator
 main_verilator_sdl
